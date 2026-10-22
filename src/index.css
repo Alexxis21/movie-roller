@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: 'Inter', sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: #16111c;
+  color: #eadfee;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(35, 29, 40, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(22, 17, 28, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Poster 3D Stack */
+.poster-stack {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  perspective: 1000px;
+}
+
+.poster-stack .layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.poster-stack .layer-3 {
+  transform: translate(28px, -14px) scale(0.88);
+  opacity: 0.35;
+  z-index: 10;
+}
+
+.poster-stack .layer-2 {
+  transform: translate(14px, -7px) scale(0.94);
+  opacity: 0.65;
+  z-index: 20;
+}
+
+.poster-stack .layer-1 {
+  transform: translate(0, 0) scale(1);
+  z-index: 30;
+}
+
+/* Spinning Animation */
+@keyframes roll-glow {
+  0% {
+    box-shadow: 0 0 0px #ffafd3;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 175, 211, 0.6);
+    transform: scale(1.03) rotate(1deg);
+  }
+  100% {
+    box-shadow: 0 0 0px #ffafd3;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-roll {
+  animation: roll-glow 1.5s ease-in-out infinite;
+}
+
+/* Custom Range Slider */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #ffafd3;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 175, 211, 0.6);
+  transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #16111c;
+}
+::-webkit-scrollbar-thumb {
+  background: #39323e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffafd3;
+}
